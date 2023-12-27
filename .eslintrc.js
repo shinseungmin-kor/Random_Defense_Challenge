@@ -1,0 +1,10 @@
+module.exports = {
+  root: true,
+  extends: ['airbnb', 'plugin:prettier/recommended'],
+  rules: {
+    'object-curly-newline': 0,
+  },
+  env: {
+    browser: true,
+  },
+};
