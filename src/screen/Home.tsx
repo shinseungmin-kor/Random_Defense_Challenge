@@ -29,38 +29,56 @@ const Home = () => {
   const PAGES = [
     {
       num: 1,
-      color: Color.Gold50,
+      color: '#86E3CE',
     },
     {
       num: 2,
-      color: Color.Blue50,
+      color: '#D0E6A5',
     },
     {
       num: 3,
-      color: Color.Red50,
+      color: '#FFDD94',
+    },
+    {
+      num: 4,
+      color: '#FA897B',
+    },
+    {
+      num: 5,
+      color: '#CCABD8',
     },
   ];
 
   return (
     <SafeContainer style={styles.container}>
+      <NavigaitonHeader
+        title={'랜덤챌린지디펜스'}
+        hasBackButton={false}
+        headerRight={() => {
+          return (
+            <View>
+              <MyPageButton
+                onPress={() => {
+                  navigation.navigate('Mypage');
+                }}
+              />
+            </View>
+          );
+        }}
+      />
       <View style={styles.test1}>
-        <NavigaitonHeader
-          title={'랜덤챌린지디펜스'}
-          hasBackButton={false}
-          headerRight={() => {
-            return (
-              <View>
-                <MyPageButton
-                  onPress={() => {
-                    navigation.navigate('Mypage');
-                  }}
-                />
-              </View>
-            );
-          }}
-        />
-        <View style={styles.test2}></View>
-        <View style={styles.test3}></View>
+        <View style={styles.test2}>
+          <MainBannerCarousel
+            offset={36}
+            pages={PAGES}
+            pageWidth={screenWidth - (16 + 36) * 2}
+            gap={16}
+          />
+        </View>
+        <View style={styles.test3}>
+          <Title text={'진행중인 챌린지'} font={FontStyle.bold.font18} />
+        </View>
+        <View style={styles.test4}></View>
       </View>
     </SafeContainer>
   );
@@ -74,16 +92,21 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   test1: {
+    flex: 1,
     backgroundColor: Color.Blue50,
     justifyContent: 'space-between',
   },
   test2: {
-    height: 50,
+    flex: 0.3,
     backgroundColor: Color.Red50,
   },
   test3: {
-    height: 50,
+    flex: 0.55,
     backgroundColor: Color.Gold50,
+  },
+  test4: {
+    flex: 0.15,
+    backgroundColor: Color.Gold10,
   },
 });
 
