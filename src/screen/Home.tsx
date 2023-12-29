@@ -1,4 +1,11 @@
-import { Dimensions, View } from 'react-native';
+import {
+  Dimensions,
+  ScrollView,
+  Text,
+  View,
+  StyleSheet,
+  StatusBar,
+} from 'react-native';
 import React from 'react';
 import { SafeContainer } from '../components/container/SafeContainer';
 import { Color } from '../statics/styles/Color';
@@ -12,6 +19,7 @@ import Title from '../components/text/Typography';
 import FontStyle from '../statics/styles/Font';
 import SubBnnerCarousel from '../components/carousel/SubBnnerCarousel';
 import Interval from '../components/lines/Interval';
+import CurrentChallenge from './homeChallenge/CurrentChallenge';
 
 const Home = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
@@ -21,57 +29,62 @@ const Home = () => {
   const PAGES = [
     {
       num: 1,
-      color: Color.Blue40,
+      color: Color.Gold50,
     },
     {
       num: 2,
-      color: Color.Blue10,
+      color: Color.Blue50,
     },
     {
       num: 3,
-      color: '#FFDD94',
-    },
-    {
-      num: 4,
-      color: '#FA897B',
-    },
-    {
-      num: 5,
-      color: '#CCABD8',
+      color: Color.Red50,
     },
   ];
 
   return (
-    <SafeContainer style={{ backgroundColor: Color.White }}>
-      <NavigaitonHeader
-        title={'랜덤챌린지디펜스'}
-        hasBackButton={false}
-        headerRight={() => {
-          return (
-            <View>
-              <MyPageButton
-                onPress={() => {
-                  navigation.navigate('Mypage');
-                }}
-              />
-            </View>
-          );
-        }}
-      />
-      <MainBannerCarousel
-        gap={16}
-        offset={0}
-        pages={PAGES}
-        pageWidth={screenWidth - 32}
-      />
-      <Interval height={20} />
-      <SplitLine />
-      <View>
-        <Title text={'진행중인 챌린지'} font={FontStyle.bold.font18} />
+    <SafeContainer style={styles.container}>
+      <View style={styles.test1}>
+        <NavigaitonHeader
+          title={'랜덤챌린지디펜스'}
+          hasBackButton={false}
+          headerRight={() => {
+            return (
+              <View>
+                <MyPageButton
+                  onPress={() => {
+                    navigation.navigate('Mypage');
+                  }}
+                />
+              </View>
+            );
+          }}
+        />
+        <View style={styles.test2}></View>
+        <View style={styles.test3}></View>
       </View>
-      <SubBnnerCarousel />
     </SafeContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: Color.White,
+  },
+  scrollView: {
+    marginHorizontal: 16,
+  },
+  test1: {
+    backgroundColor: Color.Blue50,
+    justifyContent: 'space-between',
+  },
+  test2: {
+    height: 50,
+    backgroundColor: Color.Red50,
+  },
+  test3: {
+    height: 50,
+    backgroundColor: Color.Gold50,
+  },
+});
 
 export default Home;

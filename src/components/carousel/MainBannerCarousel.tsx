@@ -1,10 +1,9 @@
-import { View, Text, Dimensions, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import Page from './Page';
 
 interface ICarousel {
-  gap: number;
   offset: number;
   pages: any[];
   pageWidth: number;
@@ -14,18 +13,11 @@ const MainBannerCarousel = (props: ICarousel) => {
   const [page, setPage] = useState(0);
 
   const renderItem = (item: any) => {
-    return (
-      <Page
-        item={item.item}
-        style={{ width: props.pageWidth, marginHorizontal: props.gap / 2 }}
-      />
-    );
+    return <Page item={item.item} style={{ width: props.pageWidth }} />;
   };
 
   const onScroll = (e: any) => {
-    const newPage = Math.round(
-      e.nativeEvent.contentOffset.x / (props.pageWidth + props.gap),
-    );
+    const newPage = Math.round(e.nativeEvent.contentOffset.x / props.pageWidth);
     setPage(newPage);
   };
 
@@ -33,9 +25,9 @@ const MainBannerCarousel = (props: ICarousel) => {
     <Container>
       <FlatList
         automaticallyAdjustContentInsets={false}
-        contentContainerStyle={{
-          paddingHorizontal: props.gap / 2,
-        }}
+        // contentContainerStyle={{
+        //   paddingHorizontal: props.gap / 2,
+        // }}
         data={props.pages}
         decelerationRate="fast"
         horizontal
@@ -43,7 +35,7 @@ const MainBannerCarousel = (props: ICarousel) => {
         onScroll={onScroll}
         pagingEnabled
         renderItem={renderItem}
-        snapToInterval={props.pageWidth + props.gap}
+        snapToInterval={props.pageWidth}
         snapToAlignment="start"
         showsHorizontalScrollIndicator={false}
       />
@@ -57,7 +49,7 @@ const MainBannerCarousel = (props: ICarousel) => {
 };
 
 const Container = styled.View`
-  height: 26%;
+  height: 50%;
   justify-content: center;
   align-items: center;
 `;
