@@ -15,7 +15,7 @@ const MainBannerCarousel = (props: ICarousel) => {
   const renderItem = (item: any) => {
     return (
       <Page
-        item={item}
+        item={item.item}
         style={{ width: props.pageWidth, marginHorizontal: props.gap / 2 }}
       />
     );

@@ -26,7 +26,7 @@ const Home = () => {
 
   const screenWidth = Math.round(Dimensions.get('window').width);
 
-  const PAGES = [
+  const PAGES1 = [
     {
       num: 1,
       color: '#86E3CE',
@@ -46,6 +46,21 @@ const Home = () => {
     {
       num: 5,
       color: '#CCABD8',
+    },
+  ];
+
+  const PAGES2 = [
+    {
+      num: 1,
+      color: '#86E3CE',
+    },
+    {
+      num: 2,
+      color: '#D0E6A5',
+    },
+    {
+      num: 3,
+      color: '#FFDD94',
     },
   ];
 
@@ -69,7 +84,7 @@ const Home = () => {
       <View style={styles.test1}>
         <View style={styles.test2}>
           <MainBannerCarousel
-            pages={PAGES}
+            pages={PAGES1}
             pageWidth={screenWidth - 32}
             gap={16}
           />
@@ -81,7 +96,9 @@ const Home = () => {
           <CurrentChallenge />
           <Interval height={20} />
         </View>
-        <View style={styles.test4}></View>
+        <View style={styles.test4}>
+          <SubBnnerCarousel gap={0} pages={PAGES2} pageWidth={screenWidth} />
+        </View>
       </View>
     </SafeContainer>
   );
@@ -107,7 +124,6 @@ const styles = StyleSheet.create({
   },
   test4: {
     flex: 0.15,
-    backgroundColor: Color.Gold10,
   },
 });
 
