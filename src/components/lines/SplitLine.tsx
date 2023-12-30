@@ -8,8 +8,8 @@ const SplitLine = () => {
   return (
     <View
       style={{
-        borderBottomColor: Color.Gray30,
-        borderBottomWidth: 1,
+        borderBottomColor: Color.Gray50,
+        borderBottomWidth: 0.5,
       }}
     />
   );

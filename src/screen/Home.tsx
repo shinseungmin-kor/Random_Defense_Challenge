@@ -69,14 +69,17 @@ const Home = () => {
       <View style={styles.test1}>
         <View style={styles.test2}>
           <MainBannerCarousel
-            offset={36}
             pages={PAGES}
-            pageWidth={screenWidth - (16 + 36) * 2}
+            pageWidth={screenWidth - 32}
             gap={16}
           />
         </View>
+        <SplitLine />
         <View style={styles.test3}>
-          <Title text={'진행중인 챌린지'} font={FontStyle.bold.font18} />
+          <Interval height={20} />
+          <Title text={'진행중인 챌린지'} font={FontStyle.bold.font16} />
+          <CurrentChallenge />
+          <Interval height={20} />
         </View>
         <View style={styles.test4}></View>
       </View>
@@ -93,16 +96,14 @@ const styles = StyleSheet.create({
   },
   test1: {
     flex: 1,
-    backgroundColor: Color.Blue50,
     justifyContent: 'space-between',
   },
   test2: {
     flex: 0.3,
-    backgroundColor: Color.Red50,
   },
   test3: {
     flex: 0.55,
-    backgroundColor: Color.Gold50,
+    marginHorizontal: 16,
   },
   test4: {
     flex: 0.15,

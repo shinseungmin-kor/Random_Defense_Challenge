@@ -47,13 +47,13 @@ const getHeight = (type: SizeType): number => {
 };
 
 const getFont = (type: SizeType) => {
-  let font = FontStyle.bold.font14;
+  let font = FontStyle.bold.font16;
   switch (type) {
     case 'md':
-      font = FontStyle.bold.font12;
+      font = FontStyle.bold.font14;
       break;
     case 'sm':
-      font = FontStyle.bold.font10;
+      font = FontStyle.bold.font12;
       break;
     case 'lg':
     default:
@@ -122,7 +122,7 @@ const OutLineButton = (props: IProps) => {
     isFullfil = true,
     disabled,
     style,
-    type = 'lg',
+    type = 'md',
     children,
   } = props;
 
@@ -137,11 +137,9 @@ const OutLineButton = (props: IProps) => {
       style={[
         {
           height: height,
-          backgroundColor: disabled
-            ? Color.Gray40
-            : isFullfil
-            ? Color.Blue50                        
-            : Color.Gray10,
+          backgroundColor: Color.White,
+          borderWidth: 0.5,
+          borderColor: Color.Gray80,
           borderRadius: 4,
           justifyContent: 'center',
           alignItems: 'center',
@@ -152,9 +150,7 @@ const OutLineButton = (props: IProps) => {
     >
       <Title
         font={font}
-        color={
-          disabled ? Color.Gray10 : isFullfil ? Color.Gray10 : Color.MainBlue
-        }
+        color={Color.Gray90}
         text={text}
         style={{
           textAlign: 'center',

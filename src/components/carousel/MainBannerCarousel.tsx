@@ -5,7 +5,6 @@ import Page from './Page';
 
 interface ICarousel {
   gap: number;
-  offset: number;
   pages: any[];
   pageWidth: number;
 }
@@ -14,11 +13,18 @@ const MainBannerCarousel = (props: ICarousel) => {
   const [page, setPage] = useState(0);
 
   const renderItem = (item: any) => {
-    return <Page item={item.item} style={{ width: props.pageWidth }} />;
+    return (
+      <Page
+        item={item}
+        style={{ width: props.pageWidth, marginHorizontal: props.gap / 2 }}
+      />
+    );
   };
 
   const onScroll = (e: any) => {
-    const newPage = Math.round(e.nativeEvent.contentOffset.x / props.pageWidth);
+    const newPage = Math.round(
+      e.nativeEvent.contentOffset.x / (props.pageWidth + props.gap),
+    );
     setPage(newPage);
   };
 
@@ -27,7 +33,7 @@ const MainBannerCarousel = (props: ICarousel) => {
       <FlatList
         automaticallyAdjustContentInsets={false}
         contentContainerStyle={{
-          paddingHorizontal: props.offset + props.gap / 2,
+          paddingHorizontal: props.gap / 2,
         }}
         data={props.pages}
         decelerationRate="fast"

@@ -22,7 +22,7 @@ const PageItem = styled.View<{ color: any }>`
   background-color: ${(props) => props.color};
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 4px;
 `;
 
 export default Page;
