@@ -4,10 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import FullScreenStackNavigator from './FullScreenStackNavigator';
 import AuthStackNavigator from './AuthStackNavigator';
 import { useSelector } from 'react-redux';
+import HistoryTopTabNavigator from './HistoryTopNavigator';
 
 const Navigator = () => {
   // const [isUser, setIsUser] = useState(true);
-  const isUser = useSelector((state) => {
+  const isUser = useSelector((state: any) => {
     return state.loginUser.value;
   });
 

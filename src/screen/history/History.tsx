@@ -13,6 +13,7 @@ import { Color } from '../../statics/styles/Color';
 import TopTabStackNavigator from '../../navigation/TopTabStackNavigator';
 import { PrimaryButton } from '../../components/buttons/BasicButton';
 import { Config, IconBlackLeftArrow } from '../../assets/vector';
+import HistoryTopTabNavigator from '../../navigation/HistoryTopNavigator';
 
 const History = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
@@ -35,6 +36,7 @@ const History = () => {
           );
         }}
       />
+      <HistoryTopTabNavigator />
     </SafeContainer>
   );
 };

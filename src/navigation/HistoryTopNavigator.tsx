@@ -3,15 +3,16 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import AllHistory from '../screen/history/tabs/AllHistory';
 import Successful from '../screen/history/tabs/Successful';
 import GivenUp from '../screen/history/tabs/GivenUp';
+import TopTapBar from './TopTapBar';
 
 const Tab = createMaterialTopTabNavigator();
 
 const HistoryTopTabNavigator = () => {
   return (
-    <Tab.Navigator initialRouteName={'AllHistory'}>
-      <Tab.Screen name="AllHistory" component={AllHistory} />
-      <Tab.Screen name="Successful" component={Successful} />
-      <Tab.Screen name="GivenUp" component={GivenUp} />
+    <Tab.Navigator tabBar={(props) => <TopTapBar {...props} />}>
+      <Tab.Screen name="전체" component={AllHistory} />
+      <Tab.Screen name="성공한" component={Successful} />
+      <Tab.Screen name="포기한" component={GivenUp} />
     </Tab.Navigator>
   );
 };
