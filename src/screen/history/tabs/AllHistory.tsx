@@ -14,6 +14,7 @@ const AllHistory = () => {
         {HistoryDummy.map((el) => {
           return (
             <HistoryContainer
+              key={el.key}
               title={el.title}
               content={el.content}
               isSuccess={el.isSuccess}
