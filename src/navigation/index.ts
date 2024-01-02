@@ -5,3 +5,9 @@ export type MainStackParamList = {
   Character: undefined;
   Mypage?: undefined;
 };
+
+export type TopTabStackParamList = {
+  AllHistory: undefined;
+  Successful: undefined;
+  GivenUp: undefined;
+};
