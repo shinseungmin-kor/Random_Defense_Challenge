@@ -4,7 +4,7 @@ import { Config } from '../../assets/vector';
 
 interface IProps {
   onPress: () => void;
-  isMypage: boolean;
+  isMypage?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 

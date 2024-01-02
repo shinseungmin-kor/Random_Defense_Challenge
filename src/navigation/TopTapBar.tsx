@@ -2,6 +2,7 @@ import { View, Text } from 'react-native';
 import React from 'react';
 import { MaterialTopTabBarProps } from '@react-navigation/material-top-tabs';
 import styled from 'styled-components/native';
+import { Color } from '../statics/styles/Color';
 
 type Route = {
   key: string;
@@ -52,6 +53,8 @@ const TabWrapper = styled.View`
   display: flex;
   align-items: center;
   padding-left: 4px;
+  border-bottom-width: 0.5px;
+  border-color: ${Color.Gray40};
 `;
 
 const TabButton = styled.TouchableOpacity<{ isFocused: boolean }>`
