@@ -34,6 +34,7 @@ const Mypage = () => {
           return (
             <View>
               <MyPageButton
+                isMypage={true}
                 onPress={() => {
                   navigation.navigate('Mypage');
                 }}
