@@ -14,11 +14,6 @@ const FullScreenStackNavigator = () => {
         component={MainBottomTabNavigator}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name="HistoryTopTabNavigator"
-        component={HistoryTopTabNavigator}
-        options={{ headerShown: false }}
-      />
     </Stack.Navigator>
   );
 };

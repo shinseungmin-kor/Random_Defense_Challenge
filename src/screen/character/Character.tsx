@@ -6,6 +6,7 @@ import NavigaitonHeader from '../commons/component/NavigaitonHeader';
 import MyPageButton from '../../components/buttons/MypageButton';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { MainStackParamList } from '../../navigation';
+import CharacterTopTabNavigator from '../../navigation/CharacterTopTabNavigator';
 
 const Character = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
@@ -27,6 +28,7 @@ const Character = () => {
           );
         }}
       />
+      <CharacterTopTabNavigator />
     </SafeContainer>
   );
 };
