@@ -30,9 +30,9 @@ const HistoryContainer = (props: IProps) => {
         </View>
         <View style={styles.result}>
           {isSuccess ? (
-            <Title text={'성공'} font={FontStyle.bold.font18} />
+            <Title text={'성공'} font={FontStyle.bold.font16} />
           ) : (
-            <Title text={'패스'} font={FontStyle.bold.font18} />
+            <Title text={'패스'} font={FontStyle.bold.font16} />
           )}
         </View>
       </View>
