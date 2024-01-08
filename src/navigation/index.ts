@@ -4,6 +4,7 @@ export type MainStackParamList = {
   AddChallege: undefined;
   Character: undefined;
   Mypage?: undefined;
+  Settings: undefined;
 };
 
 export type TopTabStackParamList = {
