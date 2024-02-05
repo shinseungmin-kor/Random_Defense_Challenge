@@ -4,6 +4,7 @@ import AllHistory from '../screen/history/tabs/AllHistory';
 import Successful from '../screen/history/tabs/Successful';
 import GivenUp from '../screen/history/tabs/GivenUp';
 import TopTapBar from './TopTapBar';
+import { HistoryDummy } from '../dummy/HistoryDummy';
 
 const Tab = createMaterialTopTabNavigator();
 

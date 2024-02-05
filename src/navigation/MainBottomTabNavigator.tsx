@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native';
-import React from 'react';
+import { View, Text, TouchableOpacity, Modal, Button } from 'react-native';
+import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screen/Home';
 import History from '../screen/history/History';
@@ -9,6 +9,38 @@ import TabBar from './TabBar';
 import AddChallenge from '../screen/challenge/AddChallenge';
 
 const Tab = createBottomTabNavigator();
+
+const MyTabs = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View
+          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+        >
+          <View style={{ backgroundColor: 'white', padding: 20 }}>
+            <Text>Modal Content</Text>
+            <Button
+              title="Close Modal"
+              onPress={() => setModalVisible(!modalVisible)}
+            />
+          </View>
+        </View>
+      </Modal>
+
+      <Text>Home Screen!</Text>
+      <Button title="Open Modal" onPress={() => setModalVisible(true)} />
+    </View>
+  );
+};
 
 const MainBottomTabNavigator = () => {
   return (
@@ -29,7 +61,7 @@ const MainBottomTabNavigator = () => {
       />
       <Tab.Screen
         name="AddChallege"
-        component={AddChallenge}
+        component={MyTabs}
         options={{ headerShown: false }}
       />
       <Tab.Screen

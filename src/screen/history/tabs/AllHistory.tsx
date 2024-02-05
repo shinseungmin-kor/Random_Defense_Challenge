@@ -6,7 +6,11 @@ import { HistoryDummy } from '../../../dummy/HistoryDummy';
 import HistoryContainer from '../../../components/container/HistoryContainer';
 import Interval from '../../../components/lines/Interval';
 
-const AllHistory = () => {
+interface IProps {
+  isDarkMode?: [];
+}
+
+const AllHistory = (props: IProps) => {
   return (
     <SafeContainer style={styles.container}>
       <Interval height={20} />

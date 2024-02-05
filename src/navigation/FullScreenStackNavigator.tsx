@@ -4,6 +4,7 @@ import MainBottomTabNavigator from './MainBottomTabNavigator';
 import HistoryTopTabNavigator from './HistoryTopNavigator';
 import TopTabStackNavigator from './TopTabStackNavigator';
 import Settings from '../screen/mypage/Settings';
+import AddChallenge from '../screen/challenge/AddChallenge';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,11 @@ const FullScreenStackNavigator = () => {
       <Stack.Screen
         name="Settings"
         component={Settings}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="AddChallenge"
+        component={AddChallenge}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

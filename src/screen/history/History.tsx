@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import NavigaitonHeader from '../commons/component/NavigaitonHeader';
 import { SafeContainer } from '../../components/container/SafeContainer';
 import {
@@ -14,6 +14,7 @@ import TopTabStackNavigator from '../../navigation/TopTabStackNavigator';
 import { PrimaryButton } from '../../components/buttons/BasicButton';
 import { Config, IconBlackLeftArrow } from '../../assets/vector';
 import HistoryTopTabNavigator from '../../navigation/HistoryTopNavigator';
+import { HistoryDummy } from '../../dummy/HistoryDummy';
 
 const History = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();

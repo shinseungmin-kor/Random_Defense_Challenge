@@ -14,6 +14,7 @@ import { IconBlackLeftArrow } from '../../../assets/vector';
 
 interface IProps {
   isDarkMode?: boolean;
+  hasUnderLine?: boolean;
   title?: string;
   hasBackButton?: boolean;
   onPressBackButton?: () => void;
@@ -24,6 +25,7 @@ interface IProps {
 
 const NavigaitonHeader = ({
   isDarkMode,
+  hasUnderLine,
   title,
   hasBackButton = true,
   onPressBackButton,
@@ -33,7 +35,7 @@ const NavigaitonHeader = ({
 }: IProps) => {
   return (
     <HeaderContainer style={[{ justifyContent: 'space-between' }, style]}>
-      <View style={{ flexDirection: 'row' }}>
+      <View style={{ flexDirection: 'row', flex: 1 }}>
         {hasBackButton && (
           <TouchableOpacity onPress={onPressBackButton}>
             <IconBlackLeftArrow
