@@ -42,7 +42,7 @@ const Inquiry = () => {
         <Interval height={15} />
         <MultipleLineTextBox />
         <Interval height={20} />
-        <UploadImageForm />
+        {/* <UploadImageForm /> */}
       </ScrollView>
     </SafeContainer>
   );
