@@ -26,7 +26,7 @@ const SingleLineTextBox = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
   },
   title: {
     marginBottom: 10,
