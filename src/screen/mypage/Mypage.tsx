@@ -42,9 +42,18 @@ const Mypage = () => {
     },
   ];
 
-  const MypageMenuButton = ({ title }: { title: string }) => {
+  const MypageMenuButton = ({
+    title,
+    navigationName,
+  }: {
+    title: string;
+    navigationName: any;
+  }) => {
     return (
       <TouchableOpacity
+        onPress={() => {
+          navigation.navigate(navigationName);
+        }}
         style={{ marginHorizontal: 16, height: 60, justifyContent: 'center' }}
       >
         <Title text={title} font={FontStyle.bold.font16} />
@@ -75,11 +84,17 @@ const Mypage = () => {
         <View style={styles.profileContainer}>
           <View>
             <Title text={'괴짜히어로레드'} font={FontStyle.bold.font22} />
-            <Title
-              text={'프로필변경 ->'}
-              font={FontStyle.regular.font14}
-              style={{ color: Color.Gray50, marginTop: 5 }}
-            />
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('EditProfile');
+              }}
+            >
+              <Title
+                text={'프로필변경 ->'}
+                font={FontStyle.regular.font14}
+                style={{ color: Color.Gray50, marginTop: 5 }}
+              />
+            </TouchableOpacity>
           </View>
           <Image
             source={{
@@ -119,11 +134,11 @@ const Mypage = () => {
       <Interval height={20} />
       <SplitBoldLine />
       <View style={styles.menuButtons}>
-        <MypageMenuButton title="챌린지 도전 내역" />
+        <MypageMenuButton title="챌린지 도전 내역" navigationName="History" />
         <SplitLine />
-        <MypageMenuButton title="문의하기" />
+        <MypageMenuButton title="문의하기" navigationName="Inquiry" />
         <SplitLine />
-        <MypageMenuButton title="공지사항" />
+        <MypageMenuButton title="공지사항" navigationName="Notice" />
         <SplitLine />
       </View>
       <View style={styles.test4}>

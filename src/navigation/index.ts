@@ -5,6 +5,7 @@ export type MainStackParamList = {
   Character: undefined;
   Mypage?: undefined;
   Settings: undefined;
+  EditProfile: undefined;
 };
 
 export type TopTabStackParamList = {
