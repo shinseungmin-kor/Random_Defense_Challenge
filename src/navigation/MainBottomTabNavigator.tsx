@@ -1,4 +1,12 @@
-import { View, Text, TouchableOpacity, Modal, Button } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Modal,
+  Button,
+  StyleSheet,
+  Image,
+} from 'react-native';
 import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screen/Home';
@@ -7,40 +15,13 @@ import Character from '../screen/character/Character';
 import Mypage from '../screen/mypage/Mypage';
 import TabBar from './TabBar';
 import AddChallenge from '../screen/challenge/AddChallenge';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { MainStackParamList } from '.';
+import EmptyPage from '../screen/challenge/EmptyPage';
+import { Color } from '../statics/styles/Color';
+import { Config } from '../assets/vector';
 
 const Tab = createBottomTabNavigator();
-
-const MyTabs = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(!modalVisible);
-        }}
-      >
-        <View
-          style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-        >
-          <View style={{ backgroundColor: 'white', padding: 20 }}>
-            <Text>Modal Content</Text>
-            <Button
-              title="Close Modal"
-              onPress={() => setModalVisible(!modalVisible)}
-            />
-          </View>
-        </View>
-      </Modal>
-
-      <Text>Home Screen!</Text>
-      <Button title="Open Modal" onPress={() => setModalVisible(true)} />
-    </View>
-  );
-};
 
 const MainBottomTabNavigator = () => {
   return (
@@ -60,8 +41,8 @@ const MainBottomTabNavigator = () => {
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="AddChallege"
-        component={MyTabs}
+        name="EmptyPage"
+        component={EmptyPage}
         options={{ headerShown: false }}
       />
       <Tab.Screen
@@ -77,5 +58,13 @@ const MainBottomTabNavigator = () => {
     </Tab.Navigator>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default MainBottomTabNavigator;

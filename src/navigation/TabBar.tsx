@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import image from '../assets/images';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Color } from '../statics/styles/Color';
+import { Plus } from '../assets/vector';
 
 const TabBar = (props: BottomTabBarProps) => {
   const { state, navigation } = props;
@@ -15,8 +16,6 @@ const TabBar = (props: BottomTabBarProps) => {
     historyActive,
     party,
     partyActive,
-    lounge,
-    loungeActive,
     judge,
     judgeActive,
     myPage,
@@ -30,9 +29,6 @@ const TabBar = (props: BottomTabBarProps) => {
     } else if (name === 'History') {
       if (!focused) return party;
       return partyActive;
-    } else if (name === 'AddChallege') {
-      if (!focused) return lounge;
-      return loungeActive;
     } else if (name === 'Character') {
       if (!focused) return judge;
       return judgeActive;
@@ -62,9 +58,6 @@ const TabBar = (props: BottomTabBarProps) => {
             } else if (route.name === 'History') {
               navigation.navigate(route.name);
               return;
-            } else if (route.name === 'AddChallege') {
-              navigation.navigate(route.name);
-              return;
             } else if (route.name === 'Character') {
               navigation.navigate(route.name);
               return;
@@ -76,13 +69,32 @@ const TabBar = (props: BottomTabBarProps) => {
         };
 
         return (
-          <TouchableOpacity
-            key={index}
-            onPress={onPress}
-            style={{ flex: 1, alignItems: 'center' }}
-          >
-            <Image source={icon} style={{ width: 20, height: 20 }} />
-          </TouchableOpacity>
+          <>
+            {route.name !== 'EmptyPage' ? (
+              <TouchableOpacity
+                key={index}
+                onPress={onPress}
+                style={{ flex: 1, alignItems: 'center' }}
+              >
+                <Image source={icon} style={{ width: 20, height: 20 }} />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity>
+                <View
+                  style={{
+                    width: 50,
+                    height: 50,
+                    backgroundColor: Color.Blue30,
+                    borderRadius: 30,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Plus width={30} height={30} />
+                </View>
+              </TouchableOpacity>
+            )}
+          </>
         );
       })}
     </Container>
