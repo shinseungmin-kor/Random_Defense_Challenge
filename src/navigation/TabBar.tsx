@@ -69,32 +69,28 @@ const TabBar = (props: BottomTabBarProps) => {
         };
 
         return (
-          <>
-            {route.name !== 'EmptyPage' ? (
-              <TouchableOpacity
-                key={index}
-                onPress={onPress}
-                style={{ flex: 1, alignItems: 'center' }}
+          <TouchableOpacity
+            key={index}
+            onPress={onPress}
+            style={{ flex: 1, alignItems: 'center' }}
+          >
+            {index === 2 ? (
+              <View
+                style={{
+                  width: 50,
+                  height: 50,
+                  backgroundColor: Color.Blue30,
+                  borderRadius: 30,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
               >
-                <Image source={icon} style={{ width: 20, height: 20 }} />
-              </TouchableOpacity>
+                <Plus width={30} height={30} />
+              </View>
             ) : (
-              <TouchableOpacity>
-                <View
-                  style={{
-                    width: 50,
-                    height: 50,
-                    backgroundColor: Color.Blue30,
-                    borderRadius: 30,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <Plus width={30} height={30} />
-                </View>
-              </TouchableOpacity>
+              <Image source={icon} style={{ width: 20, height: 20 }} />
             )}
-          </>
+          </TouchableOpacity>
         );
       })}
     </Container>
