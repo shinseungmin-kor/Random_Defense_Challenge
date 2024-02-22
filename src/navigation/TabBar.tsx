@@ -1,15 +1,22 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native';
-import React from 'react';
+import { View, Text, TouchableOpacity, Image, Modal } from 'react-native';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import image from '../assets/images';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { Color } from '../statics/styles/Color';
 import { Plus } from '../assets/vector';
+import AddChallengeModal from '../components/modals/AddChallengeModal';
 
 const TabBar = (props: BottomTabBarProps) => {
   const { state, navigation } = props;
   const insets = useSafeAreaInsets();
+
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
 
   const {
     history,
@@ -71,7 +78,7 @@ const TabBar = (props: BottomTabBarProps) => {
         return (
           <TouchableOpacity
             key={index}
-            onPress={onPress}
+            onPress={index !== 2 ? onPress : toggleModal}
             style={{ flex: 1, alignItems: 'center' }}
           >
             {index === 2 ? (
@@ -93,6 +100,16 @@ const TabBar = (props: BottomTabBarProps) => {
           </TouchableOpacity>
         );
       })}
+      <Modal
+        visible={isModalVisible}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => {
+          setModalVisible(!isModalVisible);
+        }}
+      >
+        <AddChallengeModal toggleModal={toggleModal} />
+      </Modal>
     </Container>
   );
 };
