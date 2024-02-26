@@ -6,6 +6,9 @@ export type MainStackParamList = {
   Mypage?: undefined;
   Settings: undefined;
   EditProfile: undefined;
+  AllRandomChallenge: undefined;
+  CategoryChallenge: undefined;
+  CharacteristicsChallenge: undefined;
 };
 
 export type TopTabStackParamList = {

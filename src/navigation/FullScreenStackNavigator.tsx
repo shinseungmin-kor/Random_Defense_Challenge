@@ -8,6 +8,9 @@ import AddChallenge from '../screen/challenge/AddChallenge';
 import EditProfile from '../screen/mypage/EditProfile';
 import Notice from '../screen/mypage/menus/Notice';
 import Inquiry from '../screen/mypage/menus/Inquiry';
+import AllRandomChallenge from '../screen/challenge/allRandom/AllRandomChallenge';
+import CategoryChallenge from '../screen/challenge/category/CategoryChallenge';
+import CharacteristicsChallenge from '../screen/challenge/characteristics/CharacteristicsChallenge';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +45,21 @@ const FullScreenStackNavigator = () => {
       <Stack.Screen
         name="Notice"
         component={Notice}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="AllRandomChallenge"
+        component={AllRandomChallenge}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CategoryChallenge"
+        component={CategoryChallenge}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="CharacteristicsChallenge"
+        component={CharacteristicsChallenge}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
