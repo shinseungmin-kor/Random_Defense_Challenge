@@ -28,7 +28,7 @@ const AllRandomChallenge = () => {
     setSelected(number);
   };
 
-  const CircleButton = ({ onPress }) => {
+  const CircleButton = ({ onPress }: { onPress: any }) => {
     return (
       <TouchableOpacity style={styles.circleButton} onPress={onPress}>
         <Title
