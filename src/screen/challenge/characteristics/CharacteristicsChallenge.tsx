@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import NavigaitonHeader from '../../commons/component/NavigaitonHeader';
 import { SafeContainer } from '../../../components/container/SafeContainer';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
@@ -10,9 +10,16 @@ import Title from '../../../components/text/Typography';
 import FontStyle from '../../../statics/styles/Font';
 import SplitLine from '../../../components/lines/SplitLine';
 import { OutLineButton } from '../../../components/buttons/BasicButton';
+import CenterModal from '../../../components/modals/CenterModal';
 
 const CharacteristicsChallenge = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
   return (
     <SafeContainer style={styles.container}>
       <NavigaitonHeader
@@ -23,7 +30,7 @@ const CharacteristicsChallenge = () => {
         }}
         headerRight={() => {
           return (
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={toggleModal}>
               <Title text={'완료'} font={FontStyle.bold.font18} />
             </TouchableOpacity>
           );
@@ -65,6 +72,15 @@ const CharacteristicsChallenge = () => {
           <OutLineButton text={'다시선택'} style={{ width: 140, height: 30 }} />
         </View>
       </View>
+      <CenterModal
+        show={isModalVisible}
+        onClose={toggleModal}
+        children={
+          <View style={styles.submitModal}>
+            <Title text={'asdfasdf'} font={FontStyle.bold.font16} />
+          </View>
+        }
+      />
     </SafeContainer>
   );
 };
@@ -89,6 +105,9 @@ const styles = StyleSheet.create({
   contents: {
     // flex: 0.5,
     alignItems: 'center',
+  },
+  submitModal: {
+    height: 200,
   },
 });
 

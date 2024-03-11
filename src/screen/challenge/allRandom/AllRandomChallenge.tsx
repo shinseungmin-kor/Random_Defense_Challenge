@@ -15,10 +15,12 @@ import FontStyle from '../../../statics/styles/Font';
 import { Color } from '../../../statics/styles/Color';
 import Interval from '../../../components/lines/Interval';
 import SplitLine from '../../../components/lines/SplitLine';
+import CenterModal from '../../../components/modals/CenterModal';
 
 const AllRandomChallenge = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
   const [selected, setSelected] = useState<string | null>(null);
+  const [isModalVisible, setModalVisible] = useState(false);
 
   const screenWidth = Math.round(Dimensions.get('window').width) - 32;
 
@@ -26,6 +28,10 @@ const AllRandomChallenge = () => {
 
   const handlePress = (number: string) => {
     setSelected(number);
+  };
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
   };
 
   const CircleButton = ({ onPress }: { onPress: any }) => {
@@ -98,10 +104,19 @@ const AllRandomChallenge = () => {
             ))}
           </View>
           <View style={styles.centerButtonContainer}>
-            <CircleButton onPress={() => console.log('Button pressed!')} />
+            <CircleButton onPress={toggleModal} />
           </View>
         </View>
       </View>
+      <CenterModal
+        show={isModalVisible}
+        onClose={toggleModal}
+        children={
+          <View style={styles.submitModal}>
+            <Title text={'asdfasdf'} font={FontStyle.bold.font16} />
+          </View>
+        }
+      />
     </SafeContainer>
   );
 };
@@ -176,6 +191,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  submitModal: {
+    height: 200,
   },
 });
 

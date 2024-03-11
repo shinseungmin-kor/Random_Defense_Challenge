@@ -9,17 +9,13 @@ interface IProps {
   content: string;
   isSuccess: boolean;
   imageUrl: string;
+  onPress: () => void;
 }
 
 const CategoryChallengContainer = (props: IProps) => {
-  const { title, content, isSuccess, imageUrl } = props;
+  const { title, content, isSuccess, imageUrl, onPress } = props;
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => {
-        console.log(title);
-      }}
-    >
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.subContainer}>
         <Image
           source={{ uri: imageUrl }}

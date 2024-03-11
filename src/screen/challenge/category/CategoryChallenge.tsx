@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import NavigaitonHeader from '../../commons/component/NavigaitonHeader';
 import { SafeContainer } from '../../../components/container/SafeContainer';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
@@ -11,9 +11,16 @@ import FontStyle from '../../../statics/styles/Font';
 import SplitLine from '../../../components/lines/SplitLine';
 import CategoryChallengContainer from '../../../components/container/CategoryChallengContainer';
 import { CategoryDummy } from '../../../dummy/CategoryDummy';
+import CenterModal from '../../../components/modals/CenterModal';
 
 const CategoryChallenge = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
+  const [isModalVisible, setModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+
   return (
     <SafeContainer style={styles.container}>
       <NavigaitonHeader
@@ -45,11 +52,21 @@ const CategoryChallenge = () => {
                 content={el.content}
                 isSuccess={el.isSuccess}
                 imageUrl={el.imageUrl}
+                onPress={toggleModal}
               />
             );
           })}
         </ScrollView>
       </View>
+      <CenterModal
+        show={isModalVisible}
+        onClose={toggleModal}
+        children={
+          <View style={styles.submitModal}>
+            <Title text={'asdfasdf'} font={FontStyle.bold.font16} />
+          </View>
+        }
+      />
     </SafeContainer>
   );
 };
@@ -65,6 +82,9 @@ const styles = StyleSheet.create({
     backgroundColor: Color.Gray30,
     padding: 12,
     borderRadius: 5,
+  },
+  submitModal: {
+    height: 200,
   },
 });
 
