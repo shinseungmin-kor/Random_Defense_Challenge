@@ -12,6 +12,8 @@ import SplitLine from '../../../components/lines/SplitLine';
 import CategoryChallengContainer from '../../../components/container/CategoryChallengContainer';
 import { CategoryDummy } from '../../../dummy/CategoryDummy';
 import CenterModal from '../../../components/modals/CenterModal';
+import CancelButton from '../../../components/buttons/CancelButton';
+import ConfrimButton from '../../../components/buttons/ConfrimButton';
 
 const CategoryChallenge = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
@@ -63,7 +65,24 @@ const CategoryChallenge = () => {
         onClose={toggleModal}
         children={
           <View style={styles.submitModal}>
-            <Title text={'asdfasdf'} font={FontStyle.bold.font16} />
+            <View>
+              <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
+                <Title text={'어려움'} font={FontStyle.bold.font24} />
+                <Title
+                  text={' 난이도를 선택했습니다.'}
+                  font={FontStyle.bold.font16}
+                />
+              </View>
+              <Title
+                text={'새 챌린지를 뽑으시겠어요?'}
+                font={FontStyle.bold.font16}
+              />
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+              <CancelButton />
+              <Interval width={10} />
+              <ConfrimButton />
+            </View>
           </View>
         }
       />
@@ -84,7 +103,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   submitModal: {
-    height: 200,
+    height: 180,
+    padding: 20,
+    justifyContent: 'space-between',
   },
 });
 

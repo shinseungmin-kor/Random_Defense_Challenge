@@ -11,6 +11,8 @@ import FontStyle from '../../../statics/styles/Font';
 import SplitLine from '../../../components/lines/SplitLine';
 import { OutLineButton } from '../../../components/buttons/BasicButton';
 import CenterModal from '../../../components/modals/CenterModal';
+import CancelButton from '../../../components/buttons/CancelButton';
+import ConfrimButton from '../../../components/buttons/ConfrimButton';
 
 const CharacteristicsChallenge = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
@@ -77,7 +79,21 @@ const CharacteristicsChallenge = () => {
         onClose={toggleModal}
         children={
           <View style={styles.submitModal}>
-            <Title text={'asdfasdf'} font={FontStyle.bold.font16} />
+            <View>
+              <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
+                <Title text={'운동매니아'} font={FontStyle.bold.font24} />
+                <Title text={' 특성으로'} font={FontStyle.bold.font16} />
+              </View>
+              <Title
+                text={'새 챌린지를 뽑으시겠어요?'}
+                font={FontStyle.bold.font16}
+              />
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+              <CancelButton />
+              <Interval width={10} />
+              <ConfrimButton />
+            </View>
           </View>
         }
       />
@@ -107,7 +123,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   submitModal: {
-    height: 200,
+    height: 180,
+    padding: 20,
+    justifyContent: 'space-between',
   },
 });
 

@@ -216,14 +216,6 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'space-between',
   },
-  modalButton: {
-    flex: 1,
-    height: 40,
-    borderWidth: 0.5,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });
 
 export default AllRandomChallenge;
