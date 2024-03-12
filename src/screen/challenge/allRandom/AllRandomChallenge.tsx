@@ -16,6 +16,8 @@ import { Color } from '../../../statics/styles/Color';
 import Interval from '../../../components/lines/Interval';
 import SplitLine from '../../../components/lines/SplitLine';
 import CenterModal from '../../../components/modals/CenterModal';
+import ConfrimButton from '../../../components/buttons/ConfrimButton';
+import CancelButton from '../../../components/buttons/CancelButton';
 
 const AllRandomChallenge = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
@@ -113,7 +115,24 @@ const AllRandomChallenge = () => {
         onClose={toggleModal}
         children={
           <View style={styles.submitModal}>
-            <Title text={'asdfasdf'} font={FontStyle.bold.font16} />
+            <View>
+              <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
+                <Title text={'어려움'} font={FontStyle.bold.font24} />
+                <Title
+                  text={' 난이도를 선택했습니다.'}
+                  font={FontStyle.bold.font16}
+                />
+              </View>
+              <Title
+                text={'새 챌린지를 뽑으시겠어요?'}
+                font={FontStyle.bold.font16}
+              />
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+              <CancelButton />
+              <Interval width={10} />
+              <ConfrimButton />
+            </View>
           </View>
         }
       />
@@ -193,7 +212,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   submitModal: {
-    height: 200,
+    height: 180,
+    padding: 20,
+    justifyContent: 'space-between',
+  },
+  modalButton: {
+    flex: 1,
+    height: 40,
+    borderWidth: 0.5,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

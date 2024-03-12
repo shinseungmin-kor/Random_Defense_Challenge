@@ -24,13 +24,20 @@ const CenterModal: FunctionComponent<IProps> = (props: IProps) => {
   } = props;
 
   return (
-    <BaseModal isVisible={show} onClose={onClose} onModalHide={onModalHide}>
+    <BaseModal
+      isVisible={show}
+      onClose={onClose}
+      onModalHide={onModalHide}
+      style={{ alignItems: 'center' }}
+    >
       {isSafeMode ? (
         <SafeAreaView
           style={{
             justifyContent: 'center',
             backgroundColor: backgroundColor,
             maxHeight: '90%',
+            borderRadius: 5,
+            width: 300,
           }}
         >
           {children}
