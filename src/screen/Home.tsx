@@ -6,7 +6,7 @@ import {
   StyleSheet,
   StatusBar,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeContainer } from '../components/container/SafeContainer';
 import { Color } from '../statics/styles/Color';
 import NavigaitonHeader from './commons/component/NavigaitonHeader';
@@ -20,6 +20,7 @@ import FontStyle from '../statics/styles/Font';
 import SubBnnerCarousel from '../components/carousel/SubBnnerCarousel';
 import Interval from '../components/lines/Interval';
 import CurrentChallenge from './homeChallenge/CurrentChallenge';
+import { AccountService } from '@/service/AccountService';
 
 const Home = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
@@ -63,6 +64,19 @@ const Home = () => {
       color: '#FFDD94',
     },
   ];
+
+  const getTest = async () => {
+    const response = await AccountService.getText('1');
+    if (response.status == 200) {
+      console.log(`됬다네~ ${response.data}`);
+    } else {
+      console.log('안됬다네');
+    }
+  };
+
+  useEffect(() => {
+    getTest();
+  }, []);
 
   return (
     <SafeContainer style={styles.container}>
