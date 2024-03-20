@@ -20,7 +20,7 @@ import FontStyle from '../statics/styles/Font';
 import SubBnnerCarousel from '../components/carousel/SubBnnerCarousel';
 import Interval from '../components/lines/Interval';
 import CurrentChallenge from './homeChallenge/CurrentChallenge';
-import { AccountService } from '@/service/AccountService';
+import { AccountService } from '~/service/AccountService';
 
 const Home = () => {
   const navigation = useNavigation<NavigationProp<MainStackParamList>>();
